@@ -10,8 +10,7 @@ client.on("ready", function() {
 });
 
 client.on("message", function(msg) {
-	var message = msg.content.trim();
-	if (message.length > 1 && message[0] == ".") runCommand({command:message.slice(1),event:msg});
+	if (msg.content == "ping") msg.channel.send("pong");
 });
 
 client.login("BOT_TOKEN");
