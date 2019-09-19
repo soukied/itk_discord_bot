@@ -13,4 +13,4 @@ client.on("message", function(msg) {
 	if (msg.content == "ping") msg.channel.send("pong");
 });
 
-client.login("BOT_TOKEN");
+client.login("NjI0MDU3MDc3OTAzMzkyNzY4.XYN4fQ.-ySrau2-Ii3OekARWn7fbWW2AKY");
