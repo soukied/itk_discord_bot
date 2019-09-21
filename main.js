@@ -39,7 +39,7 @@ function runCommand(command, ev) {
 		}
 	}
 
-	if (!isCommandValid) ev.channel.send(mentionMember(ev.author) + ", perintah tidak diketahui");
+	if (!isCommandValid) ev.channel.send(mentionMember(ev.author) + ", perintah \`" + command + "\` tidak diketahui");
 }
 
 // jalankan file command.js
