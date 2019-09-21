@@ -1,3 +1,6 @@
+var dotenv = require("dotenv");
+dotenv.config();
+
 var Discord = new require("discord.js");
 var client = new Discord.Client();
 
