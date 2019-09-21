@@ -1,1 +1,1 @@
-worker: node main.js hidden
+worker: node main.js

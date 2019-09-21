@@ -6,7 +6,7 @@ var bot_version = "1.0.0";
 var commandIgniter = ":";
 module.exports.commandIgniter = commandIgniter;
 
-var BOT_KEY = process.env.BOT_KEY ?  process.env.BOT_KEY : "NjI0MDU3MDc3OTAzMzkyNzY4.XYZLdw.Qih7o7HgbHwhCxxVgv1s0gjEeGY";
+var BOT_KEY = process.env.BOT_KEY ? process.env.BOT_KEY : "NjI0MDU3MDc3OTAzMzkyNzY4.XYZLdw.Qih7o7HgbHwhCxxVgv1s0gjEeGY";
 
 function rollDice() {
 	return Math.round(Math.random() * 6);
@@ -57,6 +57,6 @@ client.on("message", function(msg) {
 
 client.login(BOT_KEY).then(function() {
 	
-	client.user.setPresence({game:{name:":help v" + bot_version}, status:"online"});
+	client.user.setPresence({game:{name:commandIgniter + "help | v" + bot_version}, status:"online"});
 
 });
