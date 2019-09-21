@@ -32,12 +32,14 @@ module.exports.getCommandList = function() {
 	return commandList;
 }
 
-function runCommand(command, ev) {
+function runCommand(args, ev) {
+	var cmd = args.split(" ");
+	var command = cmd[0];
 	var isCommandValid = false;
 	for (var i = 0 ; i < commandList.length; i++) {
 		var commandObject = commandList[i];
 		if (commandObject.cmd == command) {
-			commandObject.fn(ev);
+			commandObject.fn(cmd.slice(1), ev);
 			isCommandValid = true;
 		}
 	}

@@ -8,7 +8,7 @@ var mentionMember = main.mentionMember;
 addCommand(
 	"help",
 	"Menampilkan perintah yang tersedia",
-	function(ev) {
+	function(args, ev) {
 		var output = "";
 		output += "\n> **Berikut adalah daftar perintah yang tersedia:**";
 		for (var i = 0; i < getCommandList().length; i++) {
@@ -23,7 +23,7 @@ addCommand(
 addCommand(
 	"credits",
 	"Menampilkan author dari bot",
-	function(ev) {
+	function(args, ev) {
 
 		var msg = new Discord.RichEmbed()
 		.setColor("#0099ff")
@@ -43,7 +43,7 @@ addCommand(
 addCommand(
 	"dadu",
 	"Memainkan dadu secara virtual",
-	function(ev) {
+	function(args, ev) {
 		var nilaiDadu = Math.round(Math.random() * 6);
 		ev.channel.send(mentionMember(ev.author) + ", dadumu bernilai " + nilaiDadu);
 	}
