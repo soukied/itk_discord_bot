@@ -6,7 +6,7 @@ var bot_version = "1.0.0";
 var commandIgniter = ":";
 module.exports.commandIgniter = commandIgniter;
 
-var BOT_KEY = process.env.BOT_KEY ? process.env.BOT_KEY : "NjI0MDU3MDc3OTAzMzkyNzY4.XYZLdw.Qih7o7HgbHwhCxxVgv1s0gjEeGY";
+var BOT_KEY = process.env.BOT_KEY;
 
 function rollDice() {
 	return Math.round(Math.random() * 6);
