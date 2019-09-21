@@ -9,7 +9,7 @@ addCommand(
 	"help",
 	"Menampilkan perintah yang tersedia",
 	function(ev) {
-
+		var output = "";
 		output += "\n> **Berikut adalah daftar perintah yang tersedia:**";
 		for (var i = 0; i < getCommandList().length; i++) {
 			var command = getCommandList()[i];
