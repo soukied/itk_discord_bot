@@ -9,12 +9,14 @@ addCommand(
 	"help",
 	"Menampilkan perintah yang tersedia",
 	function(ev) {
+
 		var output = mentionMember(ev.author);
 		output += "\n> **Berikut adalah daftar perintah yang tersedia:**";
 		for (var i = 0; i < getCommandList().length; i++) {
 			var command = getCommandList()[i];
 			output += "\n> \`" + main.commandIgniter + command.cmd + "\` *" + command.info + "*";
 		}
+		ev.channel.send(mentionMember(ev.author));
 		ev.channel.send(output);		
 	}
 );
