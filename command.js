@@ -49,3 +49,12 @@ addCommand(
 	}
 );
 
+addCommand(
+	"info",
+	"Menampilkan informasi dari user",
+	function(args, ev) {
+		var member = ev.author;
+		ev.channel.send(mentionMember(member) + " ID: " + member.id);
+	}
+);
+
