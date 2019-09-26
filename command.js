@@ -74,14 +74,16 @@ addCommand(
 			return;
 		}
 
+		var output = "> " + mentionMember(ev.author) + "\n";
+
 		for (var i = 0; i < args.length; i++) {
 			var nuclearCode = args[i];
 			nhentai.exists(nuclearCode).then(function(isExist) {
-				if (isExist) ev.channel.send("> "+mentionMember(ev.author) + "\n> kode `" + nuclearCode + "` tersedia. :white_check_mark:\n> URL : https://nhentai.net/g/" + nuclearCode);
-				else ev.channel.send(mentionMember(ev.author) + ", kode `" + nuclearCode + "` tidak tersedia. :negative_squared_cross_mark:");
+				if (isExist) output += "> Kode `" + nuclearCode + "` tersedia. :white_check_mark:\n> URL : https://nhentai.net/g/" + nuclearCode;
+				else output += "> kode `" + nuclearCode + "` tidak tersedia. :negative_squared_cross_mark:";
 			});
-
 		}
+		ev.channel.send(output.trim());
 	});
 
 // command dec2hex
