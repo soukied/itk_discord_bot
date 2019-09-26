@@ -4,7 +4,7 @@ var addCommand = main.addCommand;
 var getCommandList = main.getCommandList;
 var mentionMember = main.mentionMember;
 
-// tambah perintah help
+// perintah help
 addCommand(
 	"help",
 	"Menampilkan perintah yang tersedia",
@@ -20,6 +20,7 @@ addCommand(
 	}
 );
 
+// command credits
 addCommand(
 	"credits",
 	"Menampilkan author dari bot",
@@ -40,6 +41,7 @@ addCommand(
 	}
 );
 
+// command dadu
 addCommand(
 	"dadu",
 	"Memainkan dadu secara virtual",
@@ -49,6 +51,7 @@ addCommand(
 	}
 );
 
+// command info
 addCommand(
 	"info",
 	"Menampilkan informasi dari user",
