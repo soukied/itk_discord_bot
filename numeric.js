@@ -72,3 +72,20 @@ function dec2hex(num) {
 	return isNegative ? "-" + hexa : hexa;
 }
 module.exports.dec2hex = dec2hex;
+
+/**
+ * @param {String} num 
+ */
+function bin2dec(num) {
+	var isNegative = Number(num) < 0;
+	num = Math.abs(num) + "";
+	var isNumber = typeof num == "number";
+	var isBinary = ("" + num).match(/([0-1])+/)[0] == (""+num);
+	if (!isNumber && !isBinary) return null;
+	var val = 0;
+	for (var i = 0; i < num.length; i++) {
+		val += Math.pow(2, i) * num[(num.length-1)-i];
+	}
+	return isNegative ? val * -1 : val;
+}
+module.exports.bin2dec = bin2dec;
