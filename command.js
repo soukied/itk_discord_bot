@@ -6,6 +6,13 @@ var addCommand = main.addCommand;
 var getCommandList = main.getCommandList;
 var mentionMember = main.mentionMember;
 
+function getLastBookID(fn) {
+	nhentai.getHomepage(1).then(function(ev){
+		console.log(ev.results[0]);
+	});
+}
+
+getLastBookID();
 // perintah help
 addCommand(
 	"help",
