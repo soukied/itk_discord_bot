@@ -58,7 +58,7 @@ addCommand(
 	"dadu",
 	"Memainkan dadu secara virtual",
 	function (args, ev) {
-		var nilaiDadu = Math.round(Math.random() * 6);
+		var nilaiDadu = 1+Math.round(Math.random() * 5);
 		ev.channel.send(mentionMember(ev.author) + ", dadumu bernilai " + nilaiDadu);
 	}
 );
