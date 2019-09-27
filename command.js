@@ -6,14 +6,18 @@ var addCommand = main.addCommand;
 var getCommandList = main.getCommandList;
 var mentionMember = main.mentionMember;
 
-function getLastBookID(fn) {
+var lastNukeCode = 0;
+
+function getLastBookID() {
 	nhentai.getHomepage(1).then(function(ev){
-		console.log(ev.results[0].bookId);
+		lastNukeCode = ev.results[0].bookId;
 	});
 }
 
+setInterval(getLastBookID, 1000 * 60);
 getLastBookID();
-// perintah help
+
+// command help
 addCommand(
 	"help",
 	"Menampilkan perintah yang tersedia",
