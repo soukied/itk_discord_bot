@@ -8,7 +8,7 @@ var mentionMember = main.mentionMember;
 
 function getLastBookID(fn) {
 	nhentai.getHomepage(1).then(function(ev){
-		console.log(ev.results[0]);
+		console.log(ev.results[0].bookId);
 	});
 }
 
