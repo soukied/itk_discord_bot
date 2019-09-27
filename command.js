@@ -79,7 +79,7 @@ addCommand(
 	"GACHA KODE NUKLIR?!!",
 	function(args, ev) {
 		var nuclearCode = Math.round(Math.random() * lastNukeCode);
-		ev.channel.send("> " + mentionMember(ev.author) + "\n> Kode nuklir yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
+		ev.channel.send("> " + mentionMember(ev.author) + "\n> Kode yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
 	}
 );
 
