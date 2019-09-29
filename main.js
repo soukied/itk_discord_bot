@@ -38,11 +38,11 @@ function runCommand(args, ev) {
 		var commandObject = commandList[i];
 		if (commandObject.cmd == command) {
 			isCommandValid = true;
-			if (!isCoolingdown.get(ev.author.id)) {
+			if (!isCoolingdown.get(ev.channel.guild.id)) {
 				commandObject.fn(cmd.slice(1), ev);
-				isCoolingdown.set(ev.author.id, true);
+				isCoolingdown.set(ev.channel.guild.id, true);
 				setTimeout(function(){
-					isCoolingdown.set(ev.author.id, false);
+					isCoolingdown.set(ev.channel.guild.id, false);
 				},1000 * 5);
 			} else ev.channel.send("Santai dong, perintah dapat digunakan setelah 5 detik");
 		}
