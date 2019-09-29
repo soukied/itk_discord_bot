@@ -40,12 +40,12 @@ function runCommand(args, ev) {
 	for (var i = 0 ; i < commandList.length; i++) {
 		var commandObject = commandList[i];
 		if (commandObject.cmd == command) {
+			isCommandValid = true;
 			if (!isCollingdown) {
 				commandObject.fn(cmd.slice(1), ev);
-				isCommandValid = true;
 				isCoolingdown = true;
 				setTimeout(function(){
-					isCommandValid = false;
+					isCoolingdown = false;
 				},1000 * 3);
 			} else ev.channel.send("Menunggu cooldown setelah menjalankan perintah");
 		}
