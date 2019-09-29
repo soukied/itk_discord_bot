@@ -22,8 +22,8 @@ addCommand(
 	"help",
 	"Menampilkan perintah yang tersedia",
 	function (args, ev) {
-		var output = "> " + mentionMember(ev.author);
-		output += "\n> **Berikut adalah daftar perintah yang tersedia:**";
+		var output = "";
+		output += "> **Berikut adalah daftar perintah yang tersedia:**";
 		for (var i = 0; i < getCommandList().length; i++) {
 			var command = getCommandList()[i];
 			output += "\n> \`" + main.commandIgniter + command.cmd + "\` *" + command.info + "*";
@@ -34,7 +34,7 @@ addCommand(
 
 // command credits
 addCommand(
-	"credits",
+	"about",
 	"Menampilkan author dari bot",
 	function (args, ev) {
 
@@ -44,9 +44,9 @@ addCommand(
 			.setDescription("Bot Discord ITK diprogram oleh Adhya Adam Sulthan [11191003] menggunakan Javascript, Node.js, dan discord.js")
 			.addBlankField()
 			.addField("Discord", "soukied#3969", true)
-			.addField("Steam", "admajor", true)
-			.addField("GitHub", "soukied", true)
-			.addField("Instagram", "@shtty_head", true)
+			.addField("Steam", "[soukied](https://steamcommunity.com/id/admajor/)", true)
+			.addField("GitHub", "[soukied](https://github.com/soukied)", true)
+			.addField("Instagram", "[@shtty_head](https://www.instagram.com/shtty_head/)", true)
 
 		ev.channel.send(msg);
 
