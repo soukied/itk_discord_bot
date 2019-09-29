@@ -33,14 +33,20 @@ module.exports.getCommandList = function() {
 }
 
 function runCommand(args, ev) {
+	var isCollingdown = false;
 	var cmd = args.split(" ");
 	var command = cmd[0];
 	var isCommandValid = false;
 	for (var i = 0 ; i < commandList.length; i++) {
 		var commandObject = commandList[i];
-		if (commandObject.cmd == command) {
-			commandObject.fn(cmd.slice(1), ev);
-			isCommandValid = true;
+		if (commandObject.cmd == command && !isCollingdown) {
+			if (!isCollingdown) {
+				commandObject.fn(cmd.slice(1), ev);
+				isCommandValid = true;
+				setTimeout(function(){
+					isCommandValid = false;
+				},1000 * 3);
+			} else ev.channel.send("Menunggu cooldown setelah menjalankan perintah");
 		}
 	}
 
