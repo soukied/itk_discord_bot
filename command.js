@@ -97,7 +97,7 @@ addCommand(
 		for (var i = 0; i < args.length; i++) {
 			var nuclearCode = args[i];
 			nhentai.exists(nuclearCode).then(function (isExist) {
-				if (isExist) ev.channel.send("> " + mentionMember(ev.author) + "\n> Kode `" + nuclearCode + "` tersedia. :white_check_mark:\n> URL : https://nhentai.net/g/" + nuclearCode);
+				if (isExist) ev.channel.send("> Kode `" + nuclearCode + "` tersedia. :white_check_mark:\n> URL : https://nhentai.net/g/" + nuclearCode);
 				else ev.channel.send("> " + mentionMember(ev.author) + ", kode `" + nuclearCode + "` tidak tersedia. :negative_squared_cross_mark:");
 			});
 		}
