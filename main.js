@@ -43,6 +43,7 @@ function runCommand(args, ev) {
 			if (!isCollingdown) {
 				commandObject.fn(cmd.slice(1), ev);
 				isCommandValid = true;
+				isCollingdown = true;
 				setTimeout(function(){
 					isCommandValid = false;
 				},1000 * 3);
