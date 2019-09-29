@@ -32,8 +32,8 @@ module.exports.getCommandList = function() {
 	return commandList;
 }
 
+var isCoolingdown = false;
 function runCommand(args, ev) {
-	var isCoolingdown = false;
 	var cmd = args.split(" ");
 	var command = cmd[0];
 	var isCommandValid = false;
@@ -41,7 +41,7 @@ function runCommand(args, ev) {
 		var commandObject = commandList[i];
 		if (commandObject.cmd == command) {
 			isCommandValid = true;
-			if (!isCollingdown) {
+			if (!isCoolingdown) {
 				commandObject.fn(cmd.slice(1), ev);
 				isCoolingdown = true;
 				setTimeout(function(){
