@@ -78,8 +78,11 @@ addCommand(
 	"gachanuke",
 	"GACHA KODE NUKLIR?!!",
 	function(args, ev) {
-		var nuclearCode = Math.round(Math.random() * lastNukeCode);
-		ev.channel.send("> Kode yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
+		var isNSFW = ev.channel.nsfw;
+		if (isNSFW) {
+			var nuclearCode = Math.round(Math.random() * lastNukeCode);
+			ev.channel.send("> Kode yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
+		} else ev.channel.send("Channel `#" + ev.channel.name + "` tidak mengizinkan konten NSFW");
 	}
 );
 
@@ -89,18 +92,24 @@ addCommand(
 	"Mengecek status validitas kode nuklir",
 	function (args, ev) {
 
+		var isNSFW = ev.channel.nsfw;
+
 		if (args.length < 1) {
-			ev.channel.send(mentionMember(ev.author) + ", tidak ada kode nuklir yang dicek.");
+			ev.channel.send("Tidak ada kode nuklir yang dicek");
 			return;
 		}
 
-		for (var i = 0; i < args.length; i++) {
-			var nuclearCode = args[i];
-			nhentai.exists(nuclearCode).then(function (isExist) {
-				if (isExist) ev.channel.send("> Kode `" + nuclearCode + "` tersedia. :white_check_mark:\n> URL : https://nhentai.net/g/" + nuclearCode);
-				else ev.channel.send("> " + mentionMember(ev.author) + ", kode `" + nuclearCode + "` tidak tersedia. :negative_squared_cross_mark:");
-			});
-		}
+		if (isNSFW) {
+			for (var i = 0; i < args.length; i++) {
+				var nuclearCode = args[i];
+				nhentai.exists(nuclearCode).then(function (isExist) {
+					if (isExist) ev.channel.send("> Kode `" + nuclearCode + "` tersedia. :white_check_mark:\n> URL : https://nhentai.net/g/" + nuclearCode);
+					else ev.channel.send("> " + mentionMember(ev.author) + ", kode `" + nuclearCode + "` tidak tersedia. :negative_squared_cross_mark:");	
+				});
+			}
+		} else ev.channel.send("Channel `#" + ev.channel.name + "` tidak mengizinkan konten NSFW");
+
+
 	});
 
 // command dec2hex
