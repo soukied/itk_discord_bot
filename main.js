@@ -5,15 +5,12 @@ var Discord = new require("discord.js");
 var client = new Discord.Client();
 
 var bot_version = "1.0.0";
+module.exports.bot_version = bot_version;
 
 var commandIgniter = ":";
 module.exports.commandIgniter = commandIgniter;
 
 var BOT_KEY = process.env.BOT_KEY;
-
-function rollDice() {
-	return Math.round(Math.random() * 6);
-}
 
 function mentionMember(member) {
 	return "<@" + member.id + ">";
@@ -32,7 +29,7 @@ module.exports.getCommandList = function() {
 	return commandList;
 }
 
-var isCoolingdown = false;
+var isCoolingdown = new Map();
 function runCommand(args, ev) {
 	var cmd = args.split(" ");
 	var command = cmd[0];
@@ -41,11 +38,11 @@ function runCommand(args, ev) {
 		var commandObject = commandList[i];
 		if (commandObject.cmd == command) {
 			isCommandValid = true;
-			if (!isCoolingdown) {
+			if (!isCoolingdown.get(ev.author.id)) {
 				commandObject.fn(cmd.slice(1), ev);
-				isCoolingdown = true;
+				isCoolingdown.set(ev.author.id, true);
 				setTimeout(function(){
-					isCoolingdown = false;
+					isCoolingdown.set(ev.author.id, false);
 				},1000 * 5);
 			} else ev.channel.send("Santai dong, perintah dapat digunakan setelah 5 detik");
 		}

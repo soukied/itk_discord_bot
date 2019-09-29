@@ -118,7 +118,7 @@ addCommand(
 	"Mengkonversi bilangan desimal ke bilangan biner",
 	function (args, ev) {
 		if (args.length < 1) {
-			ev.channel.send(mentionMember(ev.author) + ", kamu belum memasukkan nilai yang ingin dikonversi!");
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
 			return;
 		}
 
@@ -139,7 +139,7 @@ addCommand(
 	"Mengkonversi bilangan biner ke bilangan desimal",
 	function (args, ev) {
 		if (args.length < 1) {
-			ev.channel.send(mentionMember(ev.author) + ", kamu belum memasukkan nilai yang ingin dikonversi!");
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
 			return;
 		}
 
@@ -161,7 +161,7 @@ addCommand(
 	"Mengkonversi bilangan desimal ke bilangan heksadesimal",
 	function (args, ev) {
 		if (args.length < 1) {
-			ev.channel.send(mentionMember(ev.author) + ", kamu belum memasukkan nilai yang ingin dikonversi!");
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
 			return;
 		}
 
