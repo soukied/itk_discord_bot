@@ -46,7 +46,7 @@ function runCommand(args, ev) {
 				isCoolingdown = true;
 				setTimeout(function(){
 					isCoolingdown = false;
-				},1000 * 3);
+				},1000 * 5);
 			} else ev.channel.send("Menunggu cooldown setelah menjalankan perintah");
 		}
 	}

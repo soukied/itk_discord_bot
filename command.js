@@ -59,7 +59,7 @@ addCommand(
 	"Memainkan dadu secara virtual",
 	function (args, ev) {
 		var nilaiDadu = 1 + Math.round(Math.random() * 5);
-		ev.channel.send(mentionMember(ev.author) + ", dadumu bernilai " + nilaiDadu);
+		ev.channel.send(ev.author.username", dadumu bernilai " + nilaiDadu);
 	}
 );
 
@@ -69,7 +69,7 @@ addCommand(
 	"Menampilkan informasi dari user",
 	function (args, ev) {
 		var member = ev.author;
-		ev.channel.send(mentionMember(member) + " ID : " + member.id);
+		ev.channel.send(member.username + "'s ID is `" + member.id + "`");
 	}
 );
 
@@ -79,7 +79,7 @@ addCommand(
 	"GACHA KODE NUKLIR?!!",
 	function(args, ev) {
 		var nuclearCode = Math.round(Math.random() * lastNukeCode);
-		ev.channel.send("> " + mentionMember(ev.author) + "\n> Kode yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
+		ev.channel.send("> Kode yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
 	}
 );
 
@@ -113,7 +113,7 @@ addCommand(
 			return;
 		}
 
-		var output = mentionMember(ev.author) + "\n";
+		var output = "";
 
 		for (var i = 0; i < args.length; i++) {
 			var num = args[i] * 1;
@@ -134,7 +134,7 @@ addCommand(
 			return;
 		}
 
-		var output = mentionMember(ev.author) + "\n";
+		var output = "";
 
 		for (var i = 0; i < args.length; i++) {
 			var num = args[i] * 1;
@@ -156,7 +156,7 @@ addCommand(
 			return;
 		}
 
-		var output = mentionMember(ev.author) + "\n";
+		var output = "";
 
 		for (var i = 0; i < args.length; i++) {
 			var num = args[i] * 1;
