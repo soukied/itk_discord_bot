@@ -47,7 +47,7 @@ function runCommand(args, ev) {
 				setTimeout(function(){
 					isCoolingdown = false;
 				},1000 * 5);
-			} else ev.channel.send("Menunggu cooldown setelah menjalankan perintah");
+			} else ev.channel.send("Santai dong, perintah dapat digunakan setelah 5 detik");
 		}
 	}
 
