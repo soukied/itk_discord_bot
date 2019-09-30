@@ -146,11 +146,12 @@ addCommand(
 		var output = "";
 
 		for (var i = 0; i < args.length; i++) {
-			var num = args[i] * 1;
-			if (num != NaN) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + numeric.hex2dec(num) + "`\n";
+			var num = args[i];
+			var val = numeric.hex2dec(num);
+			if (num != null) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + val + "`\n";
 			else output += "Hasil konversi ke biner dari `" + num + "` tidak terdefinisi\n";
 		}
-		ev.channel.send(output.trim());
+		ev.channel.send(out);
 	});
 
 // command bin2dec
@@ -188,9 +189,8 @@ addCommand(
 		var output = "";
 
 		for (var i = 0; i < args.length; i++) {
-			var num = args[i];
-			var val = numeric.hex2dec(num);
-			if (num != null) output += "Hasil konversi ke heksadesimal dari `" + num + "` adalah `" + val + "`\n";
+			var num = args[i] * 1;
+			if (num != NaN) output += "Hasil konversi ke heksadesimal dari `" + num + "` adalah `" + numeric.dec2hex(num) + "`\n";
 			else output += "Hasil konversi ke heksadesimal dari `" + num + "` tidak terdefinisi\n";
 		}
 		ev.channel.send(output.trim());
