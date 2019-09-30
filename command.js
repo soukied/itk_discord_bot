@@ -112,6 +112,7 @@ addCommand(
 
 	});
 
+
 // command dec2hex
 addCommand(
 	"dec2bin",
@@ -132,6 +133,25 @@ addCommand(
 		ev.channel.send(output.trim());
 	}
 );
+
+addCommand(
+	"hex2dec",
+	"Mengkonversi bilangan heksadesimal ke bilangan desimal",
+	function(args, ev){
+		if (args.length < 1) {
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
+			return;
+		}
+		
+		var output = "";
+
+		for (var i = 0; i < args.length; i++) {
+			var num = args[i] * 1;
+			if (num != NaN) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + numeric.hex2dec(num) + "`\n";
+			else output += "Hasil konversi ke biner dari `" + num + "` tidak terdefinisi\n";
+		}
+		ev.channel.send(output.trim());
+	});
 
 // command bin2dec
 addCommand(
