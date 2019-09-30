@@ -28,6 +28,7 @@ function dec2oct(num) {
 }
 module.exports.dec2oct = dec2oct;
 
+// fungsi dex2hex
 function dec2hex(num) {
 	var hexa = "";
 	var d = Math.abs(Number(num));
@@ -72,6 +73,55 @@ function dec2hex(num) {
 	return isNegative ? "-" + hexa : hexa;
 }
 module.exports.dec2hex = dec2hex;
+
+// fungsi hex2dec
+/**
+ * 
+ * @param {String} num 
+ */
+function hex2dec(num) {
+	var val = 0;
+	var isString = typeof num == "string";
+	var hexaRegex = /[0-9A-Fa-f]+/g;
+	if (isString && hexaRegex.exec(num)[0] == num) {
+		num = num.trim().toUpperCase();
+		for (var i = 0; i < num.length; i++) {
+			var char = num[(num.length - 1) - i];
+			var digit = 0;
+			switch(char) {
+				case "A":
+				digit = 10;
+				break;
+
+				case "B":
+				digit = 11;
+				break;
+
+				case "C":
+				digit = 12;
+				break;
+
+				case "D":
+				digit = 13;
+				break;
+
+				case "E":
+				digit = 14;
+				break;
+
+				case "F":
+				digit = 15;
+				break;
+			
+				default:
+				digit = char * 1;
+			}
+			val += Math.pow(16, i) * digit;
+		}
+		return val;
+	} else return null;
+}
+module.exports.hex2dec = hex2dec;
 
 /**
  * @param {String} num 
