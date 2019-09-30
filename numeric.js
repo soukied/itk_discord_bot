@@ -123,6 +123,21 @@ function hex2dec(num) {
 }
 module.exports.hex2dec = hex2dec;
 
+function oct2dec(num) {
+	num = num + "";
+	var regex = /[0-7]+/g;
+	var isString = typeof num == "string";
+	var val = 0;
+	if (isString && regex.exec(num)[0] == num) {
+		for (var i = 0; i < num.length; i++) {
+			var digit = 1 * num[(num.length - 1) - i];
+			val += Math.pow(8, i) * digit;
+		}
+		return val;
+	} else return null;
+}
+module.exports.oct2dec = oct2dec;
+
 /**
  * @param {String} num 
  */
