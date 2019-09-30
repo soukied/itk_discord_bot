@@ -148,7 +148,7 @@ addCommand(
 		for (var i = 0; i < args.length; i++) {
 			var num = args[i];
 			var val = numeric.hex2dec(num);
-			if (num != null) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + val + "`\n";
+			if (val != null) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + val + "`\n";
 			else output += "Hasil konversi ke biner dari `" + num + "` tidak terdefinisi\n";
 		}
 		ev.channel.send(output);
