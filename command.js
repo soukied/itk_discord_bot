@@ -42,7 +42,6 @@ addCommand(
 			.setColor("#0099ff")
 			.setTitle("Credits")
 			.setDescription("Bot Discord ITK diprogram oleh Adhya Adam Sulthan [11191003] menggunakan Javascript, Node.js, dan discord.js")
-			.addBlankField()
 			.addField("Discord", "soukied#3969", true)
 			.addField("Steam", "[soukied](https://steamcommunity.com/id/admajor/)", true)
 			.addField("GitHub", "[soukied](https://github.com/soukied)", true)
