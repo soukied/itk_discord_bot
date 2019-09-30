@@ -151,7 +151,7 @@ addCommand(
 			if (num != null) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + val + "`\n";
 			else output += "Hasil konversi ke biner dari `" + num + "` tidak terdefinisi\n";
 		}
-		ev.channel.send(out);
+		ev.channel.send(output);
 	});
 
 // command bin2dec
