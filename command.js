@@ -76,7 +76,7 @@ addCommand(
 // gachanuke
 addCommand(
 	"gachanuke",
-	"GACHA KODE NUKLIR?!!",
+	"GACHA KODE NUKLIR?!! **NSFW**",
 	function(args, ev) {
 		var isNSFW = ev.channel.nsfw;
 		if (isNSFW) {
@@ -89,7 +89,7 @@ addCommand(
 // command checknuke
 addCommand(
 	"checknuke",
-	"Mengecek status validitas kode nuklir",
+	"Mengecek status validitas kode nuklir **NSFW**",
 	function (args, ev) {
 
 		var isNSFW = ev.channel.nsfw;
@@ -108,12 +108,11 @@ addCommand(
 				});
 			}
 		} else ev.channel.send("Channel `#" + ev.channel.name + "` tidak mengizinkan konten NSFW");
+});
+	
 
 
-	});
-
-
-// command dec2hex
+// command dec2bin
 addCommand(
 	"dec2bin",
 	"Mengkonversi bilangan desimal ke bilangan biner",
@@ -124,36 +123,15 @@ addCommand(
 		}
 
 		var output = "";
-
+		
 		for (var i = 0; i < args.length; i++) {
 			var num = args[i] * 1;
 			if (num != NaN) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + numeric.dec2bin(num) + "`\n";
 			else output += "Hasil konversi ke biner dari `" + num + "` tidak terdefinisi\n";
 		}
 		ev.channel.send(output.trim());
-	}
-);
-
-addCommand(
-	"hex2dec",
-	"Mengkonversi bilangan heksadesimal ke bilangan desimal",
-	function(args, ev){
-		if (args.length < 1) {
-			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
-			return;
-		}
-		
-		var output = "";
-
-		for (var i = 0; i < args.length; i++) {
-			var num = args[i];
-			var val = numeric.hex2dec(num);
-			if (val != null) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + val + "`\n";
-			else output += "Hasil konversi ke biner dari `" + num + "` tidak terdefinisi\n";
-		}
-		ev.channel.send(output);
 	});
-
+	
 // command bin2dec
 addCommand(
 	"bin2dec",
@@ -163,9 +141,9 @@ addCommand(
 			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
 			return;
 		}
-
+		
 		var output = "";
-
+		
 		for (var i = 0; i < args.length; i++) {
 			var num = args[i] * 1;
 			var val = numeric.bin2dec(num);
@@ -174,8 +152,8 @@ addCommand(
 		}
 		ev.channel.send(output.trim());
 	}
-);
-
+	);
+		
 // command dec2hex
 addCommand(
 	"dec2hex",
@@ -185,13 +163,78 @@ addCommand(
 			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
 			return;
 		}
-
+		
 		var output = "";
-
+		
 		for (var i = 0; i < args.length; i++) {
 			var num = args[i] * 1;
 			if (num != NaN) output += "Hasil konversi ke heksadesimal dari `" + num + "` adalah `" + numeric.dec2hex(num) + "`\n";
 			else output += "Hasil konversi ke heksadesimal dari `" + num + "` tidak terdefinisi\n";
+		}
+		ev.channel.send(output.trim());
+	});
+	
+// command hex2dec
+addCommand(
+	"hex2dec",
+	"Mengkonversi bilangan heksadesimal ke bilangan desimal",
+	function(args, ev){
+		if (args.length < 1) {
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
+			return;
+		}
+	
+		var output = "";
+
+		for (var i = 0; i < args.length; i++) {
+			var num = args[i];
+			var val = numeric.hex2dec(num);
+			if (val != null) output += "Hasil konversi ke biner dari `" + num + "` adalah `" + val + "`\n";
+			else output += "Hasil konversi ke biner dari `" + num + "` tidak terdefinisi\n";
+		}
+		ev.channel.send(output.trim());
+	}
+);
+
+// command dec2oct
+addCommand(
+	"dec2oct",
+	"Mengkonversi bilangan desimal ke bilangan oktal",
+	function(args, ev) {
+		if (args.length < 1) {
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
+			return;
+		}
+
+		var output  = "";
+
+		for (var i = 0; i < args.length; i++) {
+			var num = args[i] * 1;
+			var val = numeric.dec2oct(num);
+			if (num != NaN) output += "Hasil konversi ke oktal dari `" + num + "` adalah `" + val + "`\n";
+			else output += "Hasil konversi ke oktal dari `" + num + "` tidak terdefinisi\n";
+		}
+		ev.channel.send(output.trim());
+	}
+);
+
+// command oct2dec
+addCommand(
+	"oct2dec",
+	"Mengkonversi bilangan oktal ke bilangan desimal",
+	function(args, ev) {
+		if (args.length < 1) {
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nilai yang ingin dikonversi!");
+			return;
+		}
+
+		var output = "";
+
+		for (var i = 0; i < args.length; i++) {
+			var num = args[i] + "";
+			var val = numeric.oct2dec(num);
+			if (val != null) output += "Hasil konversi ke desimal dari `" + num + "` adalah `" + val + "`\n";
+			else output += "Hasil konversi ke desimal dari `" + num + "` tidak terdefinisi\n";
 		}
 		ev.channel.send(output.trim());
 	}
