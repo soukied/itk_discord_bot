@@ -95,7 +95,7 @@ addCommand(
 		var fullName = "";
 		for (var i = 0 ; i < args.length; i++) {
 			var name = args[i].toLowerCase();
-			fullName += name + " "; 
+			fullName += name.toUpperCase() + " "; 
 			for (var i = 0; i < name.length; i++) {
 				var char = name[i];
 				rateSystem += getCharCode("abcdefghijklmnopqrstuvwxyz", char);
