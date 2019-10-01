@@ -76,21 +76,36 @@ addCommand(
 // // fungsi mencari index string
 function getCharCode(string, char) {
 	var charCode = 0;
-	for (var i = string.length-1 ; 0 >= string.length; i++)
-		if (char == string[i]) charCode = i;
+	for (var i = string.length-1 ; i >= 0; i--)
+		if (char == string.toLowerCase()[i]) charCode = i;
 	return charCode;
 }
 
 // command ratewaifu
 addCommand(
 	"ratewaifu",
-	"",
+	"Memberi rating sesuai nama waifu yang diberikan",
 	function(args, ev) {
+		if (args.length < 1) {
+			ev.channel.send(ev.author.username + ", kamu belum memasukkan nama waifumu!");
+			return;
+		}
 
+		var rateSystem = 0;
+		var fullName = "";
+		for (var i = 0 ; i < args.length; i++) {
+			var name = args[i].toLowerCase();
+			fullName += name + " "; 
+			for (var i = 0; i < name.length; i++) {
+				var char = name[i];
+				rateSystem += getCharCode("abcdefghijklmnopqrstuvwxyz", char);
+			}
+		}
+		ev.channel.send("Nilai rating untuk **" + fullName.trim() + "** adalah `" + (rateSystem % 11) + "/10`");
 	}
 );
 
-// gachanuke
+// command gachanuke
 addCommand(
 	"gachanuke",
 	"GACHA KODE NUKLIR?!! **NSFW**",
