@@ -188,7 +188,7 @@ addCommand(
 		}
 		ev.channel.send(output.trim());
 	}
-	);
+);
 		
 // command dec2hex
 addCommand(
