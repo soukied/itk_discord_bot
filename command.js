@@ -73,6 +73,23 @@ addCommand(
 	}
 );
 
+// // fungsi mencari index string
+function getCharCode(string, char) {
+	var charCode = 0;
+	for (var i = string.length-1 ; 0 >= string.length; i++)
+		if (char == string[i]) charCode = i;
+	return charCode;
+}
+
+// command ratewaifu
+addCommand(
+	"ratewaifu",
+	"",
+	function(args, ev) {
+
+	}
+);
+
 // gachanuke
 addCommand(
 	"gachanuke",
@@ -87,7 +104,6 @@ addCommand(
 			ev.channel.send("> Kode yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
 		} else ev.channel.send("Channel `#" + ev.channel.name + "` tidak mengizinkan konten NSFW");
 	}
-	
 );
 
 // command checknuke
