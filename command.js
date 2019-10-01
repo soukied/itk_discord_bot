@@ -8,6 +8,7 @@ var mentionMember = main.mentionMember;
 
 var lastNukeCode = 0;
 
+// mendapatkan kode nuklir terakhir
 function getLastBookID() {
 	nhentai.getHomepage(1).then(function(ev){
 		lastNukeCode = ev.results[0].bookId;
@@ -77,12 +78,16 @@ addCommand(
 	"gachanuke",
 	"GACHA KODE NUKLIR?!! **NSFW**",
 	function(args, ev) {
+
+		// apakah channel nsfw
 		var isNSFW = ev.channel.nsfw;
+		
 		if (isNSFW) {
-			var nuclearCode = Math.round(Math.random() * lastNukeCode);
+			var nuclearCode = 1 + Math.round(Math.random() * (lastNukeCode - 1));
 			ev.channel.send("> Kode yang kamu dapatkan adalah `" + nuclearCode + "`\n> URL : https://nhentai.net/g/" + nuclearCode);
 		} else ev.channel.send("Channel `#" + ev.channel.name + "` tidak mengizinkan konten NSFW");
 	}
+	
 );
 
 // command checknuke
@@ -90,7 +95,8 @@ addCommand(
 	"checknuke",
 	"Mengecek status validitas kode nuklir **NSFW**",
 	function (args, ev) {
-
+		
+		// apakah channel NSFW
 		var isNSFW = ev.channel.nsfw;
 
 		if (args.length < 1) {

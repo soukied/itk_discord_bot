@@ -54,7 +54,6 @@ function runCommand(args, ev) {
 // jalankan file command.js
 require("./command");
 
-
 client.on("ready", function() {
 	console.log("Bot Discord Dijalankan");
 });
