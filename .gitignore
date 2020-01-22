@@ -1,3 +1,4 @@
 .env
 test.*
 deploy.bat
+node_modules
